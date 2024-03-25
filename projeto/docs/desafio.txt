@@ -1,0 +1,19 @@
+DESAFIO
+Você é o desenvolvedor fullstack freelancer e uma nova demanda lhe foi submetida no
+site workana.com.
+
+O cliente precisa desenvolver um sistema para gerenciar os times de um campeonato,
+funciona assim.
+
+Um time possui vários jogadores, cada jogador só pode jogar para um time, as partidas
+entre os times não serão feitas a primeiro momento.
+
+Você precisa fazer um sistema de linha de comando mesmo, em que seja possível
+cadastrar novos jogadores, consultar jogadores, apagar, atualizar e trocar o jogador de time,
+também é preciso cadastrar e atualizar novos times.
+
+O gestor precisa também emitir relatórios:
+
+● Quais são os jogadores da sala.
+● Lista de todos os jogadores.
+● Lista das salas.

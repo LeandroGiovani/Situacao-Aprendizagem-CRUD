@@ -55,6 +55,21 @@ def remover(idJ):
             return
     print("\nJogador não encontrado!")
 
+def removerT(idT):
+    for i in range(len(jogadores)-1, -1, -1):
+        if jogadores[i]["idTime"] == idT:
+            del jogadores[i]
+    #for j in jogadores:
+    #    if j["idTime"] == idT:
+    #        del jogadores[j]
+    for t in times:
+        if t["id"] == idT:
+            times.remove(t)
+            print("Time removido com sucesso!")
+            return
+    print("Time não encontrado!")
+    menuTimes()
+
 
 def menu():
     indiceMenu = int(input("""
@@ -82,8 +97,9 @@ def menuTimes():
 [1] Visualizar
 [2] Cadastrar
 [3] Atualizar
-[4] Voltar
-[5] Sair
+[4] Remover
+[5] Voltar
+[6] Sair
 -----------------------
 """))
     if indiceMenuTimes == 1:
@@ -118,8 +134,12 @@ def menuTimes():
         atualizarTime(idTime, nomeAtt, cidadeAtt, pontuacaoAtt, jogosJogados)
         menuTimes()
     elif indiceMenuTimes == 4:
-        menu()
+        idRem = int(input("Id do time que deseja remover: "))
+        removerT(idRem)
+        menuTimes()
     elif indiceMenuTimes == 5:
+        menu()
+    elif indiceMenuTimes == 6:
         sair()
     else:
         print("\nValor inserido inválio.")
@@ -133,8 +153,9 @@ def menuJogadores():
 [2] Cadastrar
 [3] Atualizar
 [4] Remover
-[5] Voltar
-[6] Sair
+[5] Mudar
+[6] Voltar
+[7] Sair
 -----------------------
 """))
     if indiceMenuJogadores == 1:
@@ -181,8 +202,19 @@ def menuJogadores():
         remover(removerJogador)
         menuJogadores()
     elif indiceMenuJogadores == 5:
-        menu()
+        idJM = int(input("Id do jogador que deseja mover: "))
+        idTM = int(input("Id do time que o jogador irá: "))
+        for j in jogadores:
+            if j["id"] == idJM:
+                j["idTime"] = idTM
+                print("Jogador alterado!")
+                menuJogadores()
+                return
+        print("Jogador não encontrado")
+        menuJogadores()
     elif indiceMenuJogadores == 6:
+        menu()
+    elif indiceMenuJogadores == 7:
         sair()
     else:
         menuJogadores()
